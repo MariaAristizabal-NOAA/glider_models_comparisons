@@ -27,7 +27,10 @@ function [varg,presg,mean_profile,pres_gridded] = mean_glider_profile(url_glider
 % 
 
 % Outputs:
-% 
+% varg: all the glider profiles within the user defined time window
+% presg: depth vector fot all profiles
+% meand_profile: mean of all glider profiles
+% pres_gridded: gridded depth vector
 
 
 %% Glider Extract

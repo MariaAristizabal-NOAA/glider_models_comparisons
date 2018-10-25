@@ -1,4 +1,5 @@
-function [timeg_vec, depthg_vec, varg_matrix,timem,depthm,varm] = glider_transect_model_comp(url_glider,model_name,url_model,var,fig,date_ini,date_end)
+function [timeg_vec, depthg_vec, varg_matrix,timem,depthm,varm] = ...
+          glider_transect_model_comp(url_glider,model_name,url_model,var,fig,date_ini,date_end)
 
 % Author: Maria Aristizabal on Oct 23 2018
 
@@ -148,10 +149,10 @@ end
 
 target_lat = latg;
 
-sublonmod = interp1(timeg,target_lon,timemod(oktimemod));
-sublonmod = sublonmod(isfinite(sublonmod));
-sublatmod = interp1(timeg,target_lat,timemod(oktimemod));
-sublatmod = sublatmod(isfinite(sublatmod));
+sublonmod = interp1(timeg,target_lon,timemod(oktimemod),'spline');
+%sublonmod = sublonmod(isfinite(sublonmod));
+sublatmod = interp1(timeg,target_lat,timemod(oktimemod),'spline');
+%sublatmod = sublatmod(isfinite(sublatmod));
 
 oklonmod = round(interp1(lonmod,1:length(lonmod),sublonmod));
 oklatmod = round(interp1(latmod,1:length(latmod),sublatmod));
@@ -248,38 +249,5 @@ set(gca,'xgrid','on','ygrid','on','layer','top')
 
 ax = gca;
 ax.GridAlpha = 0.3;
-
-%%
-
-
-
-
-set(gca,'fontsize',siz_text)
-ylabel('Depth (m)')
-title(model_name,'fontsize',siz_title)
-
-c = colorbar;
-colormap('jet')
-c.Label.String = [var_name,' ','(',var_units,')'];
-c.Label.FontSize = siz_text;
-caxis([floor(min(varg_vec)) ceil(max(varg_vec))])
-set(c,'ytick',cc_vec)
-
-tt_vec = unique(floor([timeg_vec(1),timeg_vec(1)+(timeg_vec(end)-timeg_vec(1))/10:(timeg_vec(end)-timeg_vec(1))/10:timeg_vec(end),timeg_vec(end)]));
-xticks(tt_vec)
-xticklabels(datestr(tt_vec,'mm/dd/yy'))
-xlim([tt_vec(1) timeg_vec(end)])
-
-ylim([-max(depthg_vec) 0])
-yticks(floor(-max(depthg_vec):max(depthg_vec)/5:0))
-
-set(gca,'TickDir','out') 
-set(gca,'xgrid','on','ygrid','on','layer','top')
-
-ax = gca;
-ax.GridAlpha = 0.3;
-
-
-end
 
 end

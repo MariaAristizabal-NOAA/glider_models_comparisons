@@ -1,5 +1,4 @@
 
-
 %% mean_glider_profile
 
 % Inputs
@@ -10,6 +9,20 @@ date_end = '02-Sep-2018 00:00:00';
 fig = 'yes';
 
 [varg,presg,mean_profile,pres_gridded] = mean_glider_profile(url_glider,var,date_ini,date_end,fig);
+
+%% glider_profile_model_comp
+
+% Inputs
+url_glider = 'https://data.ioos.us/thredds/dodsC/deployments/rutgers/ru33-20180801T1323/ru33-20180801T1323.nc3.nc';
+model_name = 'GOFS 3.1';
+url_model = 'http://tds.hycom.org/thredds/dodsC/GLBv0.08/expt_93.0/ts3z';
+var = 'temperature';
+date_ini = '01-Sep-2018 00:00:00';
+date_end = '02-Sep-2018 00:00:00';
+fig = 'yes';
+
+[varg, presg, varg_mean, presg_gridded, target_varmod, depthmod_2d, varmod_mean, depthmod] = ...
+    glider_profile_model_comp(url_glider,model_name,url_model,var,date_ini,date_end,fig);
 
 %% glider_transect_fast_scatter
 
