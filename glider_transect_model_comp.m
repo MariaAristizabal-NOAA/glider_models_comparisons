@@ -2,7 +2,7 @@ function [timeg_vec, depthg_vec, varg_matrix,timem,depthm,varm] = glider_transec
 
 % Author: Maria Aristizabal on Oct 23 2018
 
-% This funtion returns the gridded matrices needed to plot a glider transect 
+% This funtion returns the gridded matrix needed to plot a glider transect 
 % with contour and also returns the same transect from a model output. 
 % The glider data is retrieved from
 % the glider dac: 'https://data.ioos.us/thredds/dodsC/deployments/'

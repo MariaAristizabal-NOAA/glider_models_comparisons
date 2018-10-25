@@ -1,4 +1,16 @@
 
+
+%% mean_glider_profile
+
+% Inputs
+url_glider = 'https://data.ioos.us/thredds/dodsC/deployments/rutgers/ru33-20180801T1323/ru33-20180801T1323.nc3.nc';
+var = 'temperature';
+date_ini = '01-Sep-2018 00:00:00';
+date_end = '02-Sep-2018 00:00:00';
+fig = 'yes';
+
+[varg,presg,mean_profile,pres_gridded] = mean_glider_profile(url_glider,var,date_ini,date_end,fig);
+
 %% glider_transect_fast_scatter
 
 % Inputs
@@ -37,3 +49,6 @@ date_end = '02-Sep-2018 00:00:00';
 [timeg_vec, depthg_vec, varg_vec,timem,depthm,varm] = ...
     glider_transect_model_comp(url_glider,model_name,url_model,...
     var,fig,date_ini,date_end);
+
+%%
+
