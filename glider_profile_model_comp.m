@@ -28,7 +28,7 @@ function [varg, presg, varg_mean, presg_gridded, target_varmod, depthmod_2d, var
 % 
 
 % Outputs:
-% varg: glider profeles
+% varg: glider profiles
 % presg: glider depths
 % varg_mean: mean glider profile
 % presg_gridded: gridded depth vector
@@ -105,7 +105,7 @@ timemod = tim/24 + datenum(2000,01,01,0,0,0);
 oktimemod = find(timemod >= tti & timemod < tte);
 target_timemod = timemod(oktimemod);
 
-% Conversion from glider longitude and latitude to GOFS 3.1 and
+% Conversion from glider longitude and latitude to GOFS 3.0 and
 % GOFS 3.1 convention
 target_lon(1:length(long)) = nan;
 

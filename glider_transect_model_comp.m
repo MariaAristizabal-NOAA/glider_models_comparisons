@@ -48,13 +48,13 @@ inst_name = inst{1};
 time = double(ncread(url_glider,'time'));
 time = datenum(1970,01,01,0,0,time);
 
-if ~exist('date_ini','var')
+if ~exist('date_ini','var') || isequal(date_ini,' ')
    tti = time(1);
 else
-   tti = datenum(date_ini); 
+   tti = datenum(date_ini);  
 end
 
-if ~exist('date_end','var')
+if ~exist('date_end','var') || isequal(date_end,' ')
    tte = time(end);
 else
    tte = datenum(date_end); 
@@ -74,7 +74,7 @@ timeg = time(ok_time_glider);
 latg = latitude(ok_time_glider);
 long = longitude(ok_time_glider);
 
-%% Mean profiles
+%% Grid variables
 
 pres_gridded = 0:0.5:max(max(presg));
 
@@ -83,12 +83,14 @@ var_gridded(length(pres_gridded),size(presg,2)) = nan;
 for i=1:size(presg,2)
     [presu,oku] = unique(presg(:,i));
     varu = varg(oku,i);
-    %ok = isfinite(varu);
-    ok = isfinite(presu);
+    okd = isfinite(presu);
+    presf = presu(okd);
+    varf = varu(okd);
+    ok = isfinite(varf);
     if sum(ok) < 3
        var_gridded(:,i) = nan;
     else
-       var_gridded(:,i) = interp1(presu(ok),varu(ok),pres_gridded);
+       var_gridded(:,i) = interp1(presf(ok),varf(ok),pres_gridded);
     end
 end
 
