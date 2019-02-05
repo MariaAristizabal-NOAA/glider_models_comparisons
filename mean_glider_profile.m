@@ -4,19 +4,15 @@ function [varg,presg,mean_profile,pres_gridded] = mean_glider_profile(url_glider
 
 % Author: Maria Aristizabal on Oct 25 2018
 
-% This funtion returns all the glider profiels and their average for a time window.  
+% This funtion returns all the glider profiles and their average for a time window.  
 % The glider data is retrieved from
 % the glider dac: 'https://data.ioos.us/thredds/dodsC/deployments/'
-% There are three choices of models: GOFS 3.1, GOFS 3.0 or COPERNICUS
 
 %
 % Inputs:
 % url_glider: url address or directory on local computer where the netcdf 
 %             file with the glider data resides. Example:
 %             'https://data.ioos.us/thredds/dodsC/deployments/rutgers/ng288-20180801T0000/ng288-20180801T0000.nc3.nc'
-% url_model: url address or directory on local computer where the netcdf 
-%            file with the model output resides. Example for GOFS 3.1:
-%            'http://tds.hycom.org/thredds/dodsC/GLBv0.08/expt_93.0/ts3z' 
 % var: variable to plot. Ex: 'temperature', 'salinity'. Make sure
 %       to use the same name as defined in the netcdf file
 %
