@@ -1,7 +1,7 @@
-glider_model_comparisons
+glider_model_comparisons_Python
 
-Author: Maria Aristizabal Vargars
+Author: Maria Aristizabal Vargas
 
-This repository is a set of MATLAB functions that retrieve and plot glider data from the IOOS glider DAC at 'https://data.ioos.us/thredds/dodsC/deployments/'. Some of the functions also retrieve model output from three global operational ocean models: Global Ocean Forecastimg System (GOFS 3.1 and GOFS 3.0) and the Operational Mercator Global Ocean Analysis and Forecast System (Copernicus) at 'http://tds.hycom.org/thredds/dodsC/GLBv0.08/expt_93.0/ts3z' (GOFS 3.1), 'http://tds.hycom.org/thredds/dodsC/GLBu0.08/expt_91.2/ts3z' (GOFS3.0) and 'http://marine.copernicus.eu/services-portfolio/access-to-products/' (Copernicus).
+This repository is a set of Python functions that retrieve and plot glider data from the IOOS glider DAC. There are two ways of retriving data from the DAC: accessing a thredds server at 'https://data.ioos.us/thredds/dodsC/deployments/' andan erddap server at 'https://data.ioos.us/gliders/erddap'. The functions "glider_transect_model_com_erddap_server" also retrieves model output from an operational ocean models. So far it is setup to be compatible with the  Global Ocean Forecastimg System (GOFS 3.1 at 'http://tds.hycom.org/thredds/dodsC/GLBv0.08/expt_93.0/ts3z'.
 
 Take a look at the script 'working_examples.m' to see examples of how to use the different functions.
